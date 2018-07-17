@@ -64,7 +64,17 @@
                empty($data['password_err']) &&
                empty($data['confirm_password_err'])) {
                // validated
-               die('SUCCESS');
+               
+               // Hash Password
+               $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+               // Register User
+               if ($this->userModel->register($data)) {
+                  redirect('users/login');
+               }
+               else {
+                  die('Somethinig went wrong');
+               }
             }
             else {
                // Load view with errors
