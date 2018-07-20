@@ -37,7 +37,7 @@
 
             // Validate Name
             if (empty($data['name'])) {
-               $data['name_err'] = 'Please enterr name';
+               $data['name_err'] = 'Please enter name';
             }
 
             // Validate Password
